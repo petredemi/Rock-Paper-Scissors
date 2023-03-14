@@ -31,7 +31,7 @@ function playRound(playerSelection, computerSelection){
 function whoWin(roundWinner){
 
     if (roundWinner === 'Equal!'){
-        computerScore += 0;
+        equalRounds += 1;
     }
     else if(roundWinner === 'You Win!'){
         yourScore += 1;
@@ -42,10 +42,12 @@ function whoWin(roundWinner){
 
 let yourScore = 0;
 let computerScore = 0;
+let equalRounds = 0;
 
 function game(){
-for (let i = 1 ; i < 4; i++){
-    const playerSelection = prompt('enter rock paper or scissors').toLowerCase();
+for (let i = 1 ; i < 6; i++){
+    let player = prompt('Please enter: rock, paper or scissors');
+    const playerSelection = player.toLowerCase();
     const computerSelection = getComputerChoice();
     roundWinner = playRound(playerSelection, computerSelection);
 
@@ -53,10 +55,9 @@ for (let i = 1 ; i < 4; i++){
     console.log(`Computer Choose: ${computerSelection}`);
     console.log(i + ' ' + playRound(playerSelection, computerSelection));
     console.log(whoWin(roundWinner));
-    
     }
 }
 game();
-console.log(`Computer: ${computerScore}`);
-console.log(`Player: ${yourScore}`);
-
+console.log(`You won: ${yourScore} time`);
+console.log(`Computer won: ${computerScore} time`);
+console.log(`Equal times: ${equalRounds}`);
