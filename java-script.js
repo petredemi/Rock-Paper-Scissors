@@ -5,6 +5,7 @@ function getComputerChoice() {
     return wordPick[randomNumber];
 }
 
+
 function playRound(playerSelection, computerSelection){
    
     if (playerSelection === 'rock' & computerSelection === 'paper'){
@@ -30,12 +31,12 @@ function playRound(playerSelection, computerSelection){
 
 function whoWin(roundWinner){
 
-    if (roundWinner === 'Equal!'){
+    if (roundWinner == 'Equal!'){
         equalRounds += 1;
     }
-    else if(roundWinner === 'You Win!'){
+    else if(roundWinner == 'You Win!'){
         yourScore += 1;
-    }else if (roundWinner === 'You lose!'){
+    }else if (roundWinner == 'You lose!'){
         computerScore += 1;
     }
 }
@@ -46,7 +47,7 @@ let equalRounds = 0;
 
 function game(){
 for (let i = 1 ; i < 6; i++){
-    let player = prompt('Please enter: rock, paper or scissors');
+    let player = prompt(`Round: ${i} from 5, Please enter: rock, paper or scissors`);
     const playerSelection = player.toLowerCase();
     const computerSelection = getComputerChoice();
     roundWinner = playRound(playerSelection, computerSelection);
