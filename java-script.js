@@ -105,9 +105,8 @@ function game(){
         console.log(`You choose: ${playerSelection}`);
         console.log(`Computer Choose: ${computerSelection}`);
         gamesRules(playerSelection, computerSelection);
-        console.log('Round: '+ i + ' ' + playRound(playerSelection, computerSelection));
-        console.log(scoreTable(roundWinner));
-      
+        console.log('Round: '+ i + ' ' + playRound(playerSelection, computerSelection));      
+        scoreTable(roundWinner);
     }
     alert ('Done');
 
@@ -127,9 +126,9 @@ function declareWinner (yourScore, computerScore){
             console.log('Computer is the winner');
         }else if ( yourScore == computerScore){
             console.log ( 'You and Computer are equal, Enjoy another Game');
-        }
-        
+        }      
         
     }
-console.log(declareWinner(yourScore, computerScore));
+//console.log(declareWinner(yourScore, computerScore));
 //document.getElementById("demo").innerHTML = console.log(declareWinner(yourScore, computerScore));
+ 
