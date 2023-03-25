@@ -7,20 +7,20 @@ function getComputerChoice() {
 function playRound(playerSelection, computerSelection){
     if (playerSelection == computerSelection){
         return 'Equal!';
-        }
-    else if (playerSelection == 'rock' & computerSelection == 'paper'){
+        
+    }else if (playerSelection == 'rock' & computerSelection == 'paper'){
         return 'You lose!';
 
     } else if ( playerSelection == 'rock' & computerSelection == 'scissors'){
         return 'You Win!';
-    }
-    else if ( playerSelection == 'paper' & computerSelection == 'scissors'){
+
+    }else if ( playerSelection == 'paper' & computerSelection == 'scissors'){
         return 'You lose!';
 
     } else if (playerSelection == 'paper' & computerSelection =='rock'){
         return 'You Win!';
-    } 
-    else if ( playerSelection == 'scissors' & computerSelection == 'rock'){
+
+    }else if ( playerSelection == 'scissors' & computerSelection == 'rock'){
         return 'You lose!';
     
     } else if ( playerSelection == 'scissors' & computerSelection == 'paper'){
@@ -40,11 +40,11 @@ let equalRounds = 0;
 
 function scoreTable(roundWinner){
 
-    if (roundWinner === 'Equal!'){
+    if (roundWinner == 'Equal!'){
         equalRounds += 1;
-    }else if(roundWinner === 'You Win!'){
+    }else if(roundWinner == 'You Win!'){
         yourScore += 1;
-    }else if (roundWinner === 'You lose!'){
+    }else if (roundWinner == 'You lose!'){
        computerScore += 1;
     } /*else if( roundWinner == 'wrong input')
         wrongTries += 1;
@@ -52,18 +52,22 @@ function scoreTable(roundWinner){
 }
 
 function game(){
-    for (i = 1 ; i < 6; i++){
-        let player = prompt(`Round: ${i} from 5, Please enter: rock, paper or scissors`);
-        let playerSelection = player.toLocaleLowerCase();
+    
+    outer: for (i = 1 ; i < 6; i++){
+        let player = prompt(`Round: ${i} from 5, Please enter: rock, paper or scissors`, '');
+        if(!player) break outer;
+
+        playerSelection = player.toLowerCase();
         const computerSelection = getComputerChoice();
         roundWinner = playRound(playerSelection, computerSelection);
 
-       if (playerSelection === 'rock' || playerSelection === 'paper' || playerSelection === 'scissors'){
+       if (playerSelection == 'rock' || playerSelection == 'paper' || playerSelection == 'scissors'){
             playerSelection;
-        }else {
+        }else { 
                 let j = 1;
                 do {
-                    let tryAgain = prompt(`${j}.Tries, Your input is wrong. Chose: rock, paper or scissors`);  
+                    let tryAgain = prompt(`${j}.Tries, Your input is wrong. Chose: rock, paper or scissors`, '');  
+                    if (!tryAgain) break outer;
                     playerSelection = tryAgain.toLowerCase();
                     roundWinner = playRound(playerSelection, computerSelection);
                     console.log(`${j}.Tries, your input is: ${playerSelection} `);
@@ -81,6 +85,7 @@ function game(){
         console.log(scoreTable(roundWinner));
         
     }
+    alert ('You canceled, the game!');
 }
 
 game();
@@ -95,7 +100,7 @@ function declareWinner (yourScore, computerScore){
             console.log('Congratulation! You are the  Winner');    
         }else if ( yourScore < computerScore){
             console.log('Computer is the winner');
-        }else if ( yourScore === computerScore){
+        }else if ( yourScore == computerScore){
             console.log ( 'You and Computer are equal, Enjoy another Game');
         }
         
