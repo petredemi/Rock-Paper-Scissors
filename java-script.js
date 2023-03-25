@@ -30,7 +30,31 @@ function playRound(playerSelection, computerSelection){
       }*/ 
 }
 
+function gamesRules(playerSelection, computerSelection){
+    if (playerSelection == computerSelection){
+        console.log ('You and computer chosed the same,  Equal!');
+    
+    }else if (playerSelection == 'rock' & computerSelection == 'paper'){
+        console.log('Computer win, Paper beat Rocks');
 
+    } else if ( playerSelection == 'rock' & computerSelection == 'scissors'){
+        console.log ('You win, Rocks beat Scissors!');
+
+    }else if ( playerSelection == 'paper' & computerSelection == 'scissors'){
+        console.log('Computer win, Scissors beat Papers');
+
+    } else if (playerSelection == 'paper' & computerSelection =='rock'){
+        console.log('You win, Paper beat Rocks');
+
+    }else if ( playerSelection == 'scissors' & computerSelection == 'rock'){
+        console.log ('Computer win, Rocks beat Scissors');
+
+    } else if ( playerSelection == 'scissors' & computerSelection == 'paper'){
+        console.log('You win, Scissors beat Paper');
+    }
+
+
+}
 
 
 let yourScore = 0;
@@ -63,7 +87,7 @@ function game(){
 
        if (playerSelection == 'rock' || playerSelection == 'paper' || playerSelection == 'scissors'){
             playerSelection;
-        }else { 
+        }else {
                 let j = 1;
                 do {
                     let tryAgain = prompt(`${j}.Tries, Your input is wrong. Chose: rock, paper or scissors`, '');  
@@ -74,18 +98,19 @@ function game(){
                     if (playerSelection === 'rock' || playerSelection === 'paper' || playerSelection === 'scissors') break;
                     playerSelection;
                     j++;
-
                 } 
-                while (playerSelection !=='rock' || playerSelection !== 'papper' || playerSelection !== 'scissors')               
+                while (playerSelection !=='rock' || playerSelection !== 'papper' || playerSelection !== 'scissors')              
             }
         playRound(playerSelection, computerSelection);   
         console.log(`You choose: ${playerSelection}`);
         console.log(`Computer Choose: ${computerSelection}`);
+        gamesRules(playerSelection, computerSelection);
         console.log('Round: '+ i + ' ' + playRound(playerSelection, computerSelection));
         console.log(scoreTable(roundWinner));
-        
+      
     }
-    alert ('You canceled, the game!');
+    alert ('Done');
+
 }
 
 game();
