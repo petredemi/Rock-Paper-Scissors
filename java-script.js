@@ -32,7 +32,7 @@ function playRound(playerSelection, computerSelection){
 
 function gamesRules(playerSelection, computerSelection){
     if (playerSelection == computerSelection){
-        console.log ('You and computer chosed the same,  Equal!');
+        console.log ('You and computer chosed the same, Equal');
     
     }else if (playerSelection == 'rock' & computerSelection == 'paper'){
         console.log('Computer win, Paper beat Rocks');
@@ -108,7 +108,7 @@ function game(){
         console.log('Round: '+ i + ' ' + playRound(playerSelection, computerSelection));      
         scoreTable(roundWinner);
     }
-    alert ('Done');
+   alert ('Done');
 
 }
 
@@ -118,7 +118,7 @@ console.log(`Computer won: ${computerScore} time`);
 console.log(`Equal times: ${equalRounds}`);
 //console.log(`Wrong Inputs by you: ${wrongTries} time`);
 
-scoreTable(roundWinner)
+scoreTable(roundWinner);
 function declareWinner (yourScore, computerScore){    
         if( yourScore > computerScore){
             console.log('Congratulation! You are the  Winner');    
@@ -129,6 +129,7 @@ function declareWinner (yourScore, computerScore){
         }      
         
     }
+declareWinner(yourScore, computerScore);
 //console.log(declareWinner(yourScore, computerScore));
-//document.getElementById("demo").innerHTML = console.log(declareWinner(yourScore, computerScore));
+//document.getElementById("demo").innerHTML = declareWinner(yourScore, computerScore);
  
