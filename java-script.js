@@ -4,27 +4,29 @@ function getComputerChoice() {
     const randomNumber = Math.floor(Math.random() * 3);
     return wordPick[randomNumber];
 }
+
+
 function playRound(playerSelection, computerSelection){
     if (playerSelection == computerSelection){
         return 'Equal!';
         
     }else if (playerSelection == 'rock' & computerSelection == 'paper'){
-        return 'You lose!';
+        return 'You lose! Paper beat rocks';
 
     } else if ( playerSelection == 'rock' & computerSelection == 'scissors'){
-        return 'You Win!';
+        return 'You Win! Rocks beat scissors';
 
     }else if ( playerSelection == 'paper' & computerSelection == 'scissors'){
-        return 'You lose!';
+        return 'You lose! Scissors beat paper';
 
     } else if (playerSelection == 'paper' & computerSelection =='rock'){
-        return 'You Win!';
+        return 'You Win! Paper beat rocks';
 
     }else if ( playerSelection == 'scissors' & computerSelection == 'rock'){
-        return 'You lose!';
+        return 'You lose! Rocks beat scissors';
     
     } else if ( playerSelection == 'scissors' & computerSelection == 'paper'){
-        return 'You Win!';
+        return 'You Win! Scissors beat paper';
      }/*else if( playerSelection !== 'rock' || playerSelection !== 'paper' || playerSelection !== 'scissors'){
         return 'wrong input';
       }*/ 
@@ -57,12 +59,13 @@ function gamesRules(playerSelection, computerSelection){
 }
 
 
-let yourScore = 0;
-let computerScore = 0;
-let equalRounds = 0;
+//let yourScore = 0;
+//let computerScore = 0;
+//let equalRounds = 0;
+//let moves = 0;
 //let wrongTries = 0;
 
-function scoreTable(roundWinner){
+/*function scoreTable(roundWinner){
 
     if (roundWinner == 'Equal!'){
         equalRounds += 1;
@@ -73,21 +76,71 @@ function scoreTable(roundWinner){
     } /*else if( roundWinner == 'wrong input')
         wrongTries += 1;
 }*/
-}
+function sounds(playerSelection){
+    const s1 = document.querySelector('#s1');
+    const s2 = document.querySelector('#s2');
+    const s3 = document.querySelector('#s3');
+            if(playerSelection == 'rock'){
+                s1.play();
+            } else if (playerSelection == 'paper'){
+                s2.play();
+            }else if (playerSelection == 'scissors'){
+                s3.play();
+            }
+        }
+
 
 function game(){
     
-    outer: for (i = 1 ; i < 6; i++){
-        let player = prompt(`Round: ${i} from 5, Please enter: rock, paper or scissors`, '');
-        if(!player) break outer;
+    //for (i = 1 ; i < 3; i++){
+      //  let player = prompt(`Round: ${i} from 5, Please enter: rock, paper or scissors`, '');
+   //     if(!player) break outer;
+    //    playerSelection = player.toLowerCase();
+  
+    const rock = document.querySelector('#rock')
+    const paper = document.querySelector('#paper');
+    const scissors = document.querySelector('#scissors');
+ //  const playerChoice = [rock, paper, scissors];
+    const buttons = document.querySelectorAll('button');
+    
+        buttons.forEach((button) => {
 
-        playerSelection = player.toLowerCase();
-        const computerSelection = getComputerChoice();
-        roundWinner = playRound(playerSelection, computerSelection);
+            button.addEventListener('click', (e) => {         
+            const playerSelection = button.id;
+            const computerSelection = getComputerChoice();
+            sounds(playerSelection);
+                
+            e.target.style.background = 'green';             
+            display = playRound (playerSelection, computerSelection);
+            document.getElementById('results').innerHTML = display;
+            document.getElementById('computer').textContent = computerSelection;
+            
+            });
 
-       if (playerSelection == 'rock' || playerSelection == 'paper' || playerSelection == 'scissors'){
+        });
+       
+    }
+game();
+
+/*const options = document.querySelector('#options');
+const computer = document.createElement('div');
+computer.classList.toggle('computer');
+computer.textContent = computerSelection;
+options.appendChild(computer); 
+*/
+
+
+
+
+//        playRound(playerSelection, computerSelection);
+
+    
+      //  roundWinner = playRound(playerSelection, computerSelection);
+
+    /*   if (playerSelection == 'rock' || playerSelection == 'paper' || playerSelection == 'scissors'){
             playerSelection;
-        }else {
+        }
+        else {
                 let j = 1;
                 do {
                     let tryAgain = prompt(`${j}.Tries, Your input is wrong. Chose: rock, paper or scissors`, '');  
@@ -100,23 +153,21 @@ function game(){
                     j++;
                 } 
                 while (playerSelection !=='rock' || playerSelection !== 'papper' || playerSelection !== 'scissors')              
-            }
-        playRound(playerSelection, computerSelection);   
-        console.log(`You choose: ${playerSelection}`);
+            } 
+    */
+ /*       console.log(`You choose: ${playerSelection}`);
         console.log(`Computer Choose: ${computerSelection}`);
         gamesRules(playerSelection, computerSelection);
         console.log('Round: '+ i + ' ' + playRound(playerSelection, computerSelection));      
         scoreTable(roundWinner);
     }
-   alert ('Done');
+  // alert ('Done');
+*/
 
-}
-
-game();
-console.log(`You won: ${yourScore} time`);
+/*console.log(`You won: ${yourScore} time`);
 console.log(`Computer won: ${computerScore} time`);
 console.log(`Equal times: ${equalRounds}`);
-//console.log(`Wrong Inputs by you: ${wrongTries} time`);
+console.log(`Wrong Inputs by you: ${wrongTries} time`);
 
 scoreTable(roundWinner);
 function declareWinner (yourScore, computerScore){    
@@ -130,6 +181,6 @@ function declareWinner (yourScore, computerScore){
         
     }
 declareWinner(yourScore, computerScore);
-//console.log(declareWinner(yourScore, computerScore));
-//document.getElementById("demo").innerHTML = declareWinner(yourScore, computerScore);
- 
+
+console.log(declareWinner(yourScore, computerScore));
+*/
