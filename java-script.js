@@ -110,7 +110,7 @@ function game(){
             const computerSelection = getComputerChoice();
             sounds(playerSelection);
                 
-            e.target.style.background = 'green';             
+            e.target.style.background = 'pink';             
             display = playRound (playerSelection, computerSelection);
             document.getElementById('results').innerHTML = display;
             document.getElementById('computer').textContent = computerSelection;
@@ -121,16 +121,6 @@ function game(){
        
     }
 game();
-
-/*const options = document.querySelector('#options');
-const computer = document.createElement('div');
-computer.classList.toggle('computer');
-computer.textContent = computerSelection;
-options.appendChild(computer); 
-*/
-
-
-
 
 //        playRound(playerSelection, computerSelection);
 
