@@ -92,77 +92,101 @@ function sounds(playerSelection){
             }else if (playerSelection == 'scissors'){
                 s3.play();
             }else if (!audio){
-                return;
+        //        return;
             }
+    //        audio.currentTime = 0;
+   //        audio.play();
         }
 
  function removeTransition(e) {
         if (e.propertyName !== 'transform') return;
         e.target.classList.remove('playing');
-        e.target.classList.remove('background')
-        }    
+        e.target.classList.remove('restart');
+        } 
+        
 const rock = document.querySelector('#rock')
 const paper = document.querySelector('#paper');
 const scissors = document.querySelector('#scissors');
-const a = document.querySelector('a');
+function replay(){
+    game();
+}
 
- 
+
+/*const your_points = document.querySelector('.your_points');
+const yp = document.createElement('div');
+yp.classList.add('yp');
+your_points.appendChild(yp);
+
+
+const computer_points = document.querySelector('.computer_points');
+const cp = document.createElement('div');
+cp.classList.add('cp');
+computer_points.appendChild(cp);
+*/
+const computer = document.querySelector('#computer');
+const results = document.querySelector('#results');
+const score = document.querySelector('#score');
+const youwinn = document.querySelector('.youwinn');
+const computerwinn = document.querySelector('.computerwinn');
 
 function game(){
 
     const buttons = document.querySelectorAll('.options > button');
+ //   const score = document.querySelector('.scoretable > button');
 
-   
         buttons.forEach((button) => { 
 
             button.addEventListener('click', (e) => {  
+    
             const playerSelection = button.id;
             const computerSelection = getComputerChoice();
             const roundWinner = gamesRules(playerSelection, computerSelection);
-            if ( yourScore == 3 || computerScore == 3)return;
 
-        //    e.target.style.background = 'pink';
+            if ( yourScore == 3 || computerScore == 3) return;       
+           
             display = playRound (playerSelection, computerSelection);
+        
 
             document.getElementById('results').textContent = display;
             document.getElementById('computer').textContent = computerSelection;
             scoreTable(roundWinner);
-           
+
             button.classList.add('playing');
-            button.classList.add('background');
-            const btns = Array.from(document.querySelectorAll('button'));
+            const btns = Array.from(document.querySelectorAll('.options > button'));
             btns.forEach(button => button.addEventListener('transitionend', removeTransition));
 
+            sounds(playerSelection); 
+        //    document.getElementsByClassName('.youwinn').textContent = yourScore;
+          //  document.getElementsByClassName('.computerwinn').textContent = computerScore;
 
-     //       sounds(playerSelection);    
-            
-            document.getElementById('yourscore').textContent = yourScore;
-                document.getElementById('computerscore').textContent = computerScore;
-                console.log(`You ${yourScore}`);
-                console.log(`Computer won: ${computerScore} time`);
-                console.log(`Equal times: ${equalRounds}`);
-        
+               youwinn.textContent = yourScore;
+               computerwinn.textContent = computerScore;
 
-                if ( yourScore == 3 || computerScore == 3){
-                    a.textContent = 'play again';
-                    a.style.background = 'green';  
-                }
- 
-
+            if ( yourScore == 3 || computerScore == 3){
+                    score.classList.add('restart');
+                    score.textContent ='play again';
+                }  
             });
 
-        });
-    
+        }); 
+       
     }  
-game();
-function again(){
-    document.getElementById('play').addEventListener('click', (e) => {
-        e.target.style.background = 'pink';
-        play.textContent = 'Score:';
+
+
+    const final = document.querySelectorAll('.scoretable > button');
+    final.forEach((button) => {
+        button.addEventListener('click', (e) => {
+        score.textContent = 'Score:';    
+        e.target.classList.remove('restart');
+        
         computer.textContent = '';
         results.textContent = '';
-        yourscore.innerHTML = '';
-        computerscore.innerHTML = '';
+        youwinn.textContent = '';
+        computerwinn.textContent = '';
+        game();
+    
+        });
+
     });
-    }
-  //  again();
+  game();
+  
