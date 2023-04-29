@@ -100,8 +100,7 @@ function sounds(playerSelection){
 
  function removeTransition(e) {
         if (e.propertyName !== 'transform') return;
-        e.target.classList.remove('playing');
-        e.target.classList.remove('restart');
+          e.target.classList.remove('playing');
         } 
         
 const rock = document.querySelector('#rock')
@@ -109,19 +108,16 @@ const paper = document.querySelector('#paper');
 const scissors = document.querySelector('#scissors');
 
 function startAgain(e){
-    score.textContent = 'Score:';    
+    score.textContent = 'Score:';   
     e.target.classList.remove('restart');
-    
     computer.textContent = '';
     results.textContent = '';
     youwinn.textContent = ''; 
     computerwinn.textContent = '';
+    h3.textContent = 'Round Results'
+
     yourScore = 0;
     computerScore = 0;
-
-
-
-
 }
 
 
@@ -141,11 +137,12 @@ const results = document.querySelector('#results');
 const score = document.querySelector('#score');
 const youwinn = document.querySelector('.youwinn');
 const computerwinn = document.querySelector('.computerwinn');
+const h3 = document.querySelector('.round > h3');
+
 
 function game(){
 
     const buttons = document.querySelectorAll('.options > button');
- //   const score = document.querySelector('.scoretable > button');
 
         buttons.forEach((button) => { 
 
@@ -163,14 +160,13 @@ function game(){
             document.getElementById('results').textContent = display;
             document.getElementById('computer').textContent = computerSelection;
             scoreTable(roundWinner);
-
             button.classList.add('playing');
+
             const btns = Array.from(document.querySelectorAll('.options > button'));
             btns.forEach(button => button.addEventListener('transitionend', removeTransition));
-
             sounds(playerSelection); 
-        //    document.getElementsByClassName('.youwinn').textContent = yourScore;
-          //  document.getElementsByClassName('.computerwinn').textContent = computerScore;
+      //      document.getElementsByClassName('.youwinn').textContent = yourScore;
+       //     document.getElementsByClassName('.computerwinn').textContent = computerScore;
 
                youwinn.textContent = yourScore;
                computerwinn.textContent = computerScore;
@@ -178,19 +174,15 @@ function game(){
             if ( yourScore == 3 || computerScore == 3){
                     score.classList.add('restart');
                     score.textContent ='play again';
+                    h3.textContent = 'Game Results'
                 }  
             });
 
         }); 
        
     }  
-
-
-    const final = document.querySelectorAll('.scoretable > button');
-    final.forEach((button) => {
-        button.addEventListener('click', (e) => {
+        score.addEventListener('click', (e) => {
             startAgain(e);
         });
 
-    });
   game();
