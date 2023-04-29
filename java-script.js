@@ -107,8 +107,21 @@ function sounds(playerSelection){
 const rock = document.querySelector('#rock')
 const paper = document.querySelector('#paper');
 const scissors = document.querySelector('#scissors');
-function replay(){
-    game();
+
+function startAgain(e){
+    score.textContent = 'Score:';    
+    e.target.classList.remove('restart');
+    
+    computer.textContent = '';
+    results.textContent = '';
+    youwinn.textContent = ''; 
+    computerwinn.textContent = '';
+    yourScore = 0;
+    computerScore = 0;
+
+
+
+
 }
 
 
@@ -176,17 +189,8 @@ function game(){
     const final = document.querySelectorAll('.scoretable > button');
     final.forEach((button) => {
         button.addEventListener('click', (e) => {
-        score.textContent = 'Score:';    
-        e.target.classList.remove('restart');
-        
-        computer.textContent = '';
-        results.textContent = '';
-        youwinn.textContent = '';
-        computerwinn.textContent = '';
-        game();
-    
+            startAgain(e);
         });
 
     });
   game();
-  
