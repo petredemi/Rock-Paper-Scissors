@@ -92,9 +92,8 @@ function sounds(playerSelection){
             }else if (playerSelection == 'scissors'){
                 s3.play();
             }else if (!audio){
-        //        return;
+                return;
             }
-    //        audio.currentTime = 0;
    //        audio.play();
         }
 
@@ -102,11 +101,7 @@ function sounds(playerSelection){
         if (e.propertyName !== 'transform') return;
           e.target.classList.remove('playing');
         } 
-        
-const rock = document.querySelector('#rock')
-const paper = document.querySelector('#paper');
-const scissors = document.querySelector('#scissors');
-
+               
 function startAgain(e){
     score.textContent = 'Score:';   
     e.target.classList.remove('restart');
@@ -114,7 +109,7 @@ function startAgain(e){
     results.textContent = '';
     youwinn.textContent = ''; 
     computerwinn.textContent = '';
-    h3.textContent = 'Round Results'
+    h3.textContent = 'Round Result:'
 
     yourScore = 0;
     computerScore = 0;
@@ -164,7 +159,11 @@ function game(){
 
             const btns = Array.from(document.querySelectorAll('.options > button'));
             btns.forEach(button => button.addEventListener('transitionend', removeTransition));
-            sounds(playerSelection); 
+         
+            sounds.currentTime = 0;
+            sounds(playerSelection);
+
+
       //      document.getElementsByClassName('.youwinn').textContent = yourScore;
        //     document.getElementsByClassName('.computerwinn').textContent = computerScore;
 
@@ -174,7 +173,7 @@ function game(){
             if ( yourScore == 3 || computerScore == 3){
                     score.classList.add('restart');
                     score.textContent ='play again';
-                    h3.textContent = 'Game Results'
+                    h3.textContent = 'Game Result:'
                 }  
             });
 
