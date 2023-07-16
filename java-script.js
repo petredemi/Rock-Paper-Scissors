@@ -1,5 +1,19 @@
 
+const computer = document.querySelector('#computer');
+const results = document.querySelector('#results');
+const score = document.querySelector('#score');
+const youwinn = document.querySelector('.youwinn');
+const computerwinn = document.querySelector('.computerwinn');
+const h3 = document.querySelector('.round > h3');
+const round_number = document.querySelector('#round_number');
+
+let yourScore = 0;
+let computerScore = 0;
+let equalRounds = 0;
+
+console.log(round_number.value);
 // function declaration
+
 function getComputerChoice() { 
     const wordPick = ['rock', 'paper', 'scissors'];
     const randomNumber = Math.floor(Math.random() * 3);
@@ -55,10 +69,6 @@ function gamesRules(playerSelection, computerSelection){
     }
 }
 
-let yourScore = 0;
-let computerScore = 0;
-let equalRounds = 0;
-
 
 function scoreTable(roundWinner){
 
@@ -71,27 +81,19 @@ function scoreTable(roundWinner){
     }
 }
 
- /*   function declareWinner (yourScore, computerScore){    
-    if( yourScore > computerScore){
-        console.log('Congratulation! You are the  Winner');    
-    }else if ( yourScore < computerScore){
-        console.log('Computer is the winner');
-    }else if ( yourScore == computerScore){
-        console.log ( 'You and Computer are equal, Enjoy another Game');
-    }
-}  */    
-
-
 function sounds(playerSelection){
     const s1 = document.querySelector('#s1');
     const s2 = document.querySelector('#s2');
     const s3 = document.querySelector('#s3');
             if(playerSelection == 'rock'){
+                s1.currentTime = 0;
                 s1.play();
             } else if (playerSelection == 'paper'){
-                s2.play();
+                s1.currentTime= 0;
+                s1.play();
             }else if (playerSelection == 'scissors'){
-                s3.play();
+                s1.currentTime = 0;
+                s1.play();
             }else if (!audio){
                 return;
             }
@@ -114,25 +116,13 @@ function startAgain(e){
     yourScore = 0;
     computerScore = 0;
 }
-
-/*const your_points = document.querySelector('.your_points');
-const yp = document.createElement('div');
-yp.classList.add('yp');
-your_points.appendChild(yp);
-
-
-const computer_points = document.querySelector('.computer_points');
-const cp = document.createElement('div');
-cp.classList.add('cp');
-computer_points.appendChild(cp);
-*/
-const computer = document.querySelector('#computer');
-const results = document.querySelector('#results');
-const score = document.querySelector('#score');
-const youwinn = document.querySelector('.youwinn');
-const computerwinn = document.querySelector('.computerwinn');
-const h3 = document.querySelector('.round > h3');
-
+let x = round_number.value;
+round_number.addEventListener('change', (e) => {
+  
+    x = round_number.value;
+    
+   // console.log(x);
+});
 
 function game(){
 
@@ -146,7 +136,7 @@ function game(){
             const computerSelection = getComputerChoice();
             const roundWinner = gamesRules(playerSelection, computerSelection);
 
-            if ( yourScore == 3 || computerScore == 3) return;       
+            if ( yourScore == x || computerScore == x) return;       
            
             display = playRound (playerSelection, computerSelection);
         
@@ -162,14 +152,10 @@ function game(){
             sounds.currentTime = 0;
             sounds(playerSelection);
 
-
-      //      document.getElementsByClassName('.youwinn').textContent = yourScore;
-       //     document.getElementsByClassName('.computerwinn').textContent = computerScore;
-
                youwinn.textContent = yourScore;
                computerwinn.textContent = computerScore;
 
-            if ( yourScore == 3 || computerScore == 3){
+            if ( yourScore == x || computerScore == x){
                     score.classList.add('restart');
                     score.textContent ='play again';
                     h3.textContent = 'Game Result:'
