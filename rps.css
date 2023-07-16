@@ -7,8 +7,10 @@
 body {
     display: flex;
     justify-content: center;
+    flex-direction: column;
     background-color: aquamarine;
-    background-image: url("./picture-rps/rps-1b-Small.jpeg");
+    align-items: center;
+    background-image: url("./picture-rps/colectie-minerale-1.jpg");
 
 
 }
@@ -16,25 +18,26 @@ body {
     display: flex;
     align-items: center;
     flex-direction: column;
-    background-color:beige;
+    background-color:rgb(119, 242, 195);
     border: 4px solid rgb(204, 9, 9);
-    box-shadow: 8px 8px 8px gray;
-    margin-top: 50px;
+    border-radius: 20px;
+    box-shadow: 8px 8px 2px rgb(18, 17, 17);
+    margin-top: 0px;
     padding: 10px;
-    width: 100vh;
+    width: auto;
     height: auto;
 
 }
 
 h2 {
-    background-color: aqua;
-    font-size: 46px;
+    background-color: rgb(255, 0, 0);
+    font-size: 35px;
     color:beige;
     text-shadow: 1px 1px 4px black;
     border: 2px solid black;
     text-align: center;
-    padding: 20px;
-    margin: 30px;
+    padding: 10px;
+    margin-top: 50px;
     margin-left: 10px;
     margin-right: 10px;
     box-shadow: 6px -6px 6px gray;
@@ -43,26 +46,31 @@ h2 {
 .options {
     display: block;
     text-align: center;
-    margin-top: 30px;
+    margin-top: 20px;
+    border: 2px solid rgb(216, 3, 3);
+    background: rgba(242, 247, 100, 0.854);
+    box-shadow: 6px -6px 6px rgb(26, 24, 24);
+
+
 }
 
 button {
     color: red;
-    font-size: 32px;
+    font-size: 28px;
     font-family: Arial, Helvetica, sans-serif;
     background: white;
     text-shadow: 1px 1px 2px black;
     font-weight: 600;
     border-radius: 6px;
     border: 4px solid black;
-    margin: 15px;
-    min-width: 170px;
-    min-height: 170px;
+    margin: 10px;
+    min-width: 100px;
+    min-height: 100px;
     transition: all 0.1s ease;
 
 }
 .playing {
-    transform: scale(1.3);
+    transform: scale(1.2);
     border-color: red;
     background-color: pink;
   }
@@ -72,13 +80,13 @@ button {
 
     background-color: aqua;
     border-color: rgb(15, 107, 246);
-    transform: scale(1.3);
+    transform: scale(1.2);
 }
   
 #computer-option{
     display: flex; 
     align-items: center;
-    margin: 30px;
+    margin: 10px;
 
 }
 #computer {
@@ -93,9 +101,9 @@ button {
 p { 
     background: rgb(244, 244, 144);
     text-align: center;
-    padding: 10px;
+    padding: 5px;
     display: inline-block;
-    margin: 10px;
+    margin: 5px;
 }
 .round{
     display: inline-flex;
@@ -108,11 +116,11 @@ h3 {
     display: inline-block;
     background-color: aquamarine;
     padding: 8px;
-    font-size: 32px;
+    font-size: 25px;
     color: rgb(230, 11, 11);
     text-shadow: 1px 1px 2px black;
     border: 2px solid red;
-    margin-right: 25px;
+    margin-right: 20px;
 
 }
 
@@ -120,21 +128,21 @@ h3 {
     background: rgb(243, 76, 76);
     border: 2px solid black;
     color: beige;
-    font-size: 28px;
+    font-size: 22px;
     text-shadow: 1px 1px 2px black;
     display: inline-flex;
     align-items: center;
-    min-width: 350px;
-    min-height: 32px;
+    min-width: 250px;
+    min-height: 28px;
     margin-right: 20px;
     padding: 7px;
 }
 
 p, #computer{
-    font-size: 22px;
+    font-size: 20px;
     padding-left: 10px;
     border: 1px solid black;
-    margin: 10px;
+    margin: 5px;
 
 }
 .your_points, .computer_points {
@@ -143,7 +151,7 @@ p, #computer{
 }
 .youwinn, .computerwinn{
     color: red;
-    font-size: 50px;
+    font-size: 40px;
     font-weight: bold;
     text-shadow: 1px 1px 1px black;
     min-width: 25px;
@@ -153,7 +161,9 @@ p, #computer{
 .scoretable{
     display: inline-flex;
     text-align: center;
-    margin: 30px;
+    background: rgb(163, 163, 246);
+    box-shadow: 8px 8px 8px gray;
+    margin: 20px;
     margin-left: 20px;
     margin-right: 20px;
 }

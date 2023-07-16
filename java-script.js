@@ -1,4 +1,5 @@
 
+// function declaration
 function getComputerChoice() { 
     const wordPick = ['rock', 'paper', 'scissors'];
     const randomNumber = Math.floor(Math.random() * 3);
@@ -70,7 +71,7 @@ function scoreTable(roundWinner){
     }
 }
 
-    function declareWinner (yourScore, computerScore){    
+ /*   function declareWinner (yourScore, computerScore){    
     if( yourScore > computerScore){
         console.log('Congratulation! You are the  Winner');    
     }else if ( yourScore < computerScore){
@@ -78,7 +79,7 @@ function scoreTable(roundWinner){
     }else if ( yourScore == computerScore){
         console.log ( 'You and Computer are equal, Enjoy another Game');
     }
-}      
+}  */    
 
 
 function sounds(playerSelection){
@@ -94,8 +95,7 @@ function sounds(playerSelection){
             }else if (!audio){
                 return;
             }
-   //        audio.play();
-        }
+       }
 
  function removeTransition(e) {
         if (e.propertyName !== 'transform') return;
@@ -114,7 +114,6 @@ function startAgain(e){
     yourScore = 0;
     computerScore = 0;
 }
-
 
 /*const your_points = document.querySelector('.your_points');
 const yp = document.createElement('div');
