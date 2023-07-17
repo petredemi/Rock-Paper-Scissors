@@ -14,6 +14,14 @@ body {
 */
 
 }
+.game {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    background-color: #fcfcaf;
+    align-items: center;
+    width: fit-content;
+}
 .rps{
     display: flex;
     align-items: center;
@@ -24,8 +32,8 @@ body {
     box-shadow: 8px 8px 2px rgb(18, 17, 17);
     margin-top: 0px;
     padding: 10px;
-    width: auto;
-    height: auto;
+    width: fit-content;
+    height: fit-content;
 
 }
 
@@ -45,14 +53,14 @@ h2 {
 }
 
 label{
-    font-size: 20px;
+    font-size: 24px;
     color:rgb(246, 12, 12);
     text-shadow: 1px 2px 0px black;
     margin: 10px;
 }
 #round_number{
     width: 40px;
-    font-size: 20px;
+    font-size: 25px;
     color: brown;
     font-weight: 800;
 }
