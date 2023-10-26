@@ -117,7 +117,7 @@ function startAgain(e){
     computerScore = 0;
 }
 let x = round_number.value;
-round_number.addEventListener('change', (e) => {
+round_number.addEventListener('click', (e) => {
   
     x = round_number.value;
     
@@ -131,7 +131,7 @@ function game(){
         buttons.forEach((button) => { 
 
             button.addEventListener('click', (e) => {  
-    
+            button.currentTime = 0;
             const playerSelection = button.id;
             const computerSelection = getComputerChoice();
             const roundWinner = gamesRules(playerSelection, computerSelection);
@@ -149,8 +149,8 @@ function game(){
             const btns = Array.from(document.querySelectorAll('.options > button'));
             btns.forEach(button => button.addEventListener('transitionend', removeTransition));
          
-            sounds.currentTime = 0;
-            sounds(playerSelection);
+       //     sounds.currentTime = 0;
+     //       sounds(playerSelection);
 
                youwinn.textContent = yourScore;
                computerwinn.textContent = computerScore;
@@ -159,6 +159,9 @@ function game(){
                     score.classList.add('restart');
                     score.textContent ='play again';
                     h3.textContent = 'Game Result:'
+            //        const options = document.querySelector('.optiomns');
+              //      const rock = document.querySelector('#rock');
+                //    options.removeChild(rock); 
                 }  
             });
 

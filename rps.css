@@ -8,7 +8,7 @@ body {
     display: flex;
     justify-content: center;
     flex-direction: column;
-    background-color: #fcfcaf;
+    background: linear-gradient(to right, #fcfcaf, rgb(255, 77, 77), #fcfcaf, rgb(255, 77, 77));
     align-items: center;
   /*  background-image: url("./picture-rps/colectie-minerale-1.jpg");
 */
@@ -18,7 +18,6 @@ body {
     display: flex;
     justify-content: center;
     flex-direction: column;
-    background-color: #fcfcaf;
     align-items: center;
     width: fit-content;
 }
@@ -26,7 +25,7 @@ body {
     display: flex;
     align-items: center;
     flex-direction: column;
-    background-color:rgb(119, 242, 195);
+    background: radial-gradient(rgb(119, 242, 195), rgb(248, 61, 61), rgb(43, 43, 252), white);
     border: 4px solid rgb(204, 9, 9);
     border-radius: 20px;
     box-shadow: 8px 8px 2px rgb(18, 17, 17);
@@ -34,12 +33,10 @@ body {
     padding: 10px;
     width: fit-content;
     height: fit-content;
-
 }
 
-
 h2 {
-    background-color: rgb(255, 0, 0);
+    background: linear-gradient( to right, rgb(255, 0, 0), blue);
     font-size: 35px;
     color:beige;
     text-shadow: 1px 1px 4px black;
@@ -74,9 +71,9 @@ label{
 
 button {
     color: red;
+    background: radial-gradient(white, green, white);
     font-size: 28px;
     font-family: Arial, Helvetica, sans-serif;
-    background: white;
     text-shadow: 1px 1px 2px black;
     font-weight: 600;
     border-radius: 6px;
@@ -86,18 +83,17 @@ button {
     min-width: 100px;
     min-height: 100px;
     transition: all 0.3s ease;
-
 }
+
 .playing {
     transform: scale(1.2);
     border-color: red;
-    background-color: pink;
+    background: green;
   }
 .restart{
     width: 140px;
     height: 140px;
-
-    background-color: aqua;
+    background: rgb(64, 241, 111);
     border-color: rgb(15, 107, 246);
     transform: scale(1.2);
 }
@@ -145,13 +141,13 @@ h3 {
 
 #results {
     background: rgb(243, 76, 76);
-    border: 2px solid white;
+    border: 4px solid white;
     color: beige;
     font-size: 22px;
     text-shadow: 1px 1px 2px black;
     display: inline-flex;
     align-items: center;
-    min-width: 250px;
+    min-width: 255px;
     min-height: 28px;
     margin-right: 20px;
     padding: 7px;
@@ -189,6 +185,6 @@ p, #computer{
     margin: 10px;
 }
 #copyright {
-    background: '';
+    background: linear-gradient(to right, rgb(176, 174, 174), white, rgb(160, 159, 159), white);
     border: none;
 }
